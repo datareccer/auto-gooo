@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: auto-ex-streamlit
+    env: python
+    region: oregon
+    plan: free
+    repo: https://github.com/YOURUSERNAME/YOURREPO
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash start.sh
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: STRIPE_API_KEY
+        sync: false
+      - key: PORT
+        value: ""
